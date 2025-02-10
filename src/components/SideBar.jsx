@@ -1,4 +1,8 @@
+import { Link, useNavigate } from "react-router-dom";
+
 const SideBar = () => {
+
+  const navigate = useNavigate();
   return (
     <div className="sidebar" data-background-color="dark">
       <div className="sidebar-logo">
@@ -29,18 +33,18 @@ const SideBar = () => {
       <div className="sidebar-wrapper scrollbar scrollbar-inner">
         <div className="sidebar-content">
           <ul className="nav nav-secondary">
-            <li className="nav-item active">
+           <li className="nav-item active">
               <a
                 data-bs-toggle="collapse"
-                href="#dashboard"
+                // href="#dashboard"
                 className="collapsed"
-                aria-expanded="false"
+                // aria-expanded="false"
               >
                 <i className="fas fa-home" />
-                <p>Dashboard</p>
-                <span className="caret" />
+                <p onClick={() => navigate('/')}>Dashboard</p>  
+                {/* <span className="caret" />   */}
               </a>
-              <div className="collapse" id="dashboard">
+              {/* <div className="collapse" id="dashboard">
                 <ul className="nav nav-collapse">
                   <li>
                     <a href="../demo1/index.html">
@@ -48,15 +52,15 @@ const SideBar = () => {
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </li>
-            <li className="nav-section">
+            {/* <li className="nav-section">
               <span className="sidebar-mini-icon">
                 <i className="fa fa-ellipsis-h" />
               </span>
               <h4 className="text-section">Components</h4>
-            </li>
-            <li className="nav-item">
+            </li> */}
+            {/* <li className="nav-item">
               <a data-bs-toggle="collapse" href="#base">
                 <i className="fas fa-layer-group" />
                 <p>Base</p>
@@ -111,8 +115,8 @@ const SideBar = () => {
                   </li>
                 </ul>
               </div>
-            </li>
-            <li className="nav-item">
+            </li> */}
+            {/* <li className="nav-item">
               <a data-bs-toggle="collapse" href="#sidebarLayouts">
                 <i className="fas fa-th-list" />
                 <p>Sidebar Layouts</p>
@@ -132,18 +136,23 @@ const SideBar = () => {
                   </li>
                 </ul>
               </div>
-            </li>
+            </li> */}
             <li className="nav-item">
               <a data-bs-toggle="collapse" href="#forms">
                 <i className="fas fa-pen-square" />
-                <p>Forms</p>
+                <p>PD/Concept</p>
                 <span className="caret" />
               </a>
               <div className="collapse" id="forms">
                 <ul className="nav nav-collapse">
-                  <li>
-                    <a href="forms/forms.html">
-                      <span className="sub-item">Basic Form</span>
+                  <li onClick={() => navigate('/createOrder')}>
+                    <a>
+                      <span className="sub-item">PD/Concept</span>
+                    </a>
+                  </li>
+                  <li onClick={() => navigate('/approvalLists')}>
+                    <a>
+                      <span className="sub-item">Approval Lists</span>
                     </a>
                   </li>
                 </ul>
@@ -157,20 +166,20 @@ const SideBar = () => {
               </a>
               <div className="collapse" id="tables">
                 <ul className="nav nav-collapse">
-                  <li>
+                  {/* <li>
                     <a href="tables/tables.html">
                       <span className="sub-item">Basic Table</span>
                     </a>
-                  </li>
-                  <li>
-                    <a href="tables/datatables.html">
+                  </li> */}
+                  <li onClick={() => navigate('/dataTable')}>
+                    <a>
                       <span className="sub-item">Datatables</span>
                     </a>
                   </li>
                 </ul>
               </div>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a data-bs-toggle="collapse" href="#maps">
                 <i className="fas fa-map-marker-alt" />
                 <p>Maps</p>
@@ -190,8 +199,8 @@ const SideBar = () => {
                   </li>
                 </ul>
               </div>
-            </li>
-            <li className="nav-item">
+            </li> */}
+            {/* <li className="nav-item">
               <a data-bs-toggle="collapse" href="#charts">
                 <i className="far fa-chart-bar" />
                 <p>Charts</p>
@@ -211,8 +220,8 @@ const SideBar = () => {
                   </li>
                 </ul>
               </div>
-            </li>
-            <li className="nav-item">
+            </li> */}
+            {/* <li className="nav-item">
               <a href="widgets.html">
                 <i className="fas fa-desktop" />
                 <p>Widgets</p>
@@ -225,8 +234,8 @@ const SideBar = () => {
                 <p>Documentation</p>
                 <span className="badge badge-secondary">1</span>
               </a>
-            </li>
-            <li className="nav-item">
+            </li> */}
+            {/* <li className="nav-item">
               <a data-bs-toggle="collapse" href="#submenu">
                 <i className="fas fa-bars" />
                 <p>Menu Levels</p>
@@ -276,7 +285,7 @@ const SideBar = () => {
                   </li>
                 </ul>
               </div>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

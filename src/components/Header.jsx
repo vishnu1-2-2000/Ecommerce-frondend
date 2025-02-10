@@ -30,7 +30,7 @@ const Header = () => {
         {/* Navbar Header */}
         <nav className="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
           <div className="container-fluid">
-            <nav className="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
+            {/* <nav className="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
               <div className="input-group">
                 <div className="input-group-prepend">
                   <button type="submit" className="btn btn-search pe-1">
@@ -43,7 +43,7 @@ const Header = () => {
                   className="form-control"
                 />
               </div>
-            </nav>
+            </nav> */}
             <ul className="navbar-nav topbar-nav ms-md-auto align-items-center">
               <li className="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none">
                 <a

@@ -1,0 +1,15 @@
+* {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.nav-item {
+    cursor: pointer;
+}
+.hideSelect {
+    appearance: none;
+}
+.pd-select {
+    padding: 7px 6px;
+}
