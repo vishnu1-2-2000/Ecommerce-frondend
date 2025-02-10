@@ -13,3 +13,10 @@
 .pd-select {
     padding: 7px 6px;
 }
+.pd-edit-btn {
+    position: relative;
+    top: 0px;
+    right: 40px;
+    background: wheat;
+    padding: 2px 7px;
+}
