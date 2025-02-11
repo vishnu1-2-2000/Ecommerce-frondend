@@ -192,17 +192,17 @@ const SideBar = () => {
               </a>
               <div className="collapse" id="maps">
                 <ul className="nav nav-collapse">
-                  <li>
+                  <li onClick={() => navigate('/sketchList')}>
                     <a>
                       <span className="sub-item">Lists</span>
                     </a>
                   </li>
-                  <li>
+                  <li onClick={() => navigate("/sketchApproval")}>
                     <a>
                       <span className="sub-item">Approval Lists</span>
                     </a>
                   </li>
-                  <li>
+                  <li onClick={() => navigate("/sketchGridView")}>
                     <a>
                       <span className="sub-item">Sketch Grid View</span>
                     </a>

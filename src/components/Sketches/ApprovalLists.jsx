@@ -1,11 +1,9 @@
 import Footer from "../Footer";
 import Header from "../Header";
 import SideBar from "../SideBar";
-import { useState } from "react";
-import { FaEye, FaEllipsisV } from "react-icons/fa";
-import SketchListTable from "./SketchListTable";
+import SketchesApprovalTable from "./SketchesApprovalTable";
 
-const SketchList = () => {
+const ApprovalLists = () => {
   return (
     <div className="wrapper">
       <SideBar />
@@ -49,19 +47,17 @@ const SketchList = () => {
                             <th></th> {/* Eye Icon Column */}
                             <th>Sketch Id</th>
                             <th>Date</th>
-                            <th>Images</th>
-                            <th>Concept ID</th>
-                            <th>Required Count</th>
-                            <th>Pending Sketches</th>
-                            <th>Sketcher Name</th>
-                            <th>Status</th>
-                            <th>Initiated Date</th>
-                            <th>Days in Sketched</th>
+                            <th>Image</th>
+                            <th>Req Count</th>
+                            <th>concept id</th>
+                            <th>Sketcher</th>
+                            <th>Approval</th>
+                            <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <SketchListTable />
+                            <SketchesApprovalTable />
                           </tr>
                         </tbody>
                       </table>
@@ -78,4 +74,4 @@ const SketchList = () => {
   );
 };
 
-export default SketchList;
+export default ApprovalLists;
