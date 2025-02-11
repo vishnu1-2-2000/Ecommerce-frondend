@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { FaEllipsisV, FaEye } from "react-icons/fa";
 
 const SketchListTable = () => {
-      const [toggle, setToggle] = useState(false);
-    
+  const [toggle, setToggle] = useState(false);
+
   return (
-    <>
+    <tr>
       <td>
         <FaEye className="text-primary" />
       </td>
@@ -26,25 +26,30 @@ const SketchListTable = () => {
       <td>13 Feb 2025</td>
       <td>5</td>
       <td style={{ position: "relative" }} onClick={() => setToggle(!toggle)}>
-              {!toggle && <FaEllipsisV className="text-secondary" style={{ cursor: "pointer" }} />}
-              {toggle && (
-              <span
-                className="pd-edit-btn"
-                style={{
-                  position: "relative",
-                  top: "0px",
-                  right: "19px",
-                  background: "#2a2f5b",
-                  color: "white",
-                  padding: "7px 4px",
-                  cursor: "pointer"
-                }}
-              >
-                Edit
-              </span>
-            )}
-            </td>
-    </>
+        {!toggle && (
+          <FaEllipsisV
+            className="text-secondary"
+            style={{ cursor: "pointer" }}
+          />
+        )}
+        {toggle && (
+          <span
+            className="pd-edit-btn"
+            style={{
+              position: "relative",
+              top: "0px",
+              right: "19px",
+              background: "#2a2f5b",
+              color: "white",
+              padding: "7px 4px",
+              cursor: "pointer",
+            }}
+          >
+            Edit
+          </span>
+        )}
+      </td>
+    </tr>
   );
 };
 

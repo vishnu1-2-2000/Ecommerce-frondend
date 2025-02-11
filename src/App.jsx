@@ -8,6 +8,8 @@ import SketchApproval from "./components/Sketches/ApprovalLists";
 import PdLists from "./components/PD-Order/PdLists";
 import SketchList from "./components/Sketches/SketchList";
 import SketchGridView from "./components/Sketches/SketchGridView";
+import DesignReports from "./components/Reports/DesignReports/DesignReports";
+import DesignerReports from "./components/Reports/DesignerReports/DesignerReports";
 
 function App() {
   const router = createBrowserRouter([
@@ -43,6 +45,14 @@ function App() {
       path: "/sketchGridView",
       element: <SketchGridView />,
     },
+    {
+      path: "/designReports",
+      element: <DesignReports />
+    },
+    {
+      path: "/designerReports",
+      element: <DesignerReports />
+    }
   ]);
   return <RouterProvider router={router} />;
 }

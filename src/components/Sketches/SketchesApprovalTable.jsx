@@ -5,7 +5,7 @@ const SketchesApprovalTable = () => {
   const [approvalStatus, setApprovalStatus] = useState("Approved");
   const [moveToCad, setMoveToCad] = useState("moveToCad")
   return (
-    <>
+    <tr>
       <td>
         <FaEye className="text-primary" />
       </td>
@@ -36,7 +36,7 @@ const SketchesApprovalTable = () => {
       <td>
         <button className="cad-btn">Move to Cad</button>
       </td>
-    </>
+    </tr>
   );
 };
 

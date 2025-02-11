@@ -210,27 +210,27 @@ const SideBar = () => {
                 </ul>
               </div>
             </li>
-            {/* <li className="nav-item">
+            <li className="nav-item">
               <a data-bs-toggle="collapse" href="#charts">
                 <i className="far fa-chart-bar" />
-                <p>Charts</p>
+                <p>Reports</p>
                 <span className="caret" />
               </a>
               <div className="collapse" id="charts">
                 <ul className="nav nav-collapse">
-                  <li>
-                    <a href="charts/charts.html">
-                      <span className="sub-item">Chart Js</span>
+                  <li onClick={() => navigate("/designReports")}>
+                    <a>
+                      <span className="sub-item">Design Reports</span>
                     </a>
                   </li>
-                  <li>
-                    <a href="charts/sparkline.html">
-                      <span className="sub-item">Sparkline</span>
+                  <li onClick={() => navigate("/designerReports")}>
+                    <a>
+                      <span className="sub-item">Designer Reports</span>
                     </a>
                   </li>
                 </ul>
               </div>
-            </li> */}
+            </li>
             {/* <li className="nav-item">
               <a href="widgets.html">
                 <i className="fas fa-desktop" />
