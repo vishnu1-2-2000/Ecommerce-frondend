@@ -231,6 +231,28 @@ const SideBar = () => {
                 </ul>
               </div>
             </li>
+
+            <li className="nav-item">
+              <a data-bs-toggle="collapse" href="#albums">
+                <i className="fas fa-file" />
+                <p>Albums</p>
+                <span className="caret" />
+              </a>
+              <div className="collapse" id="albums">
+                <ul className="nav nav-collapse">
+                  <li onClick={() => navigate("/sentToCustomer")}>
+                    <a>
+                      <span className="sub-item">Send to Customer</span>
+                    </a>
+                  </li>
+                  <li onClick={() => navigate("/designerReports")}>
+                    <a>
+                      <span className="sub-item">Dew Albums</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
             {/* <li className="nav-item">
               <a href="widgets.html">
                 <i className="fas fa-desktop" />

@@ -10,6 +10,7 @@ import SketchList from "./components/Sketches/SketchList";
 import SketchGridView from "./components/Sketches/SketchGridView";
 import DesignReports from "./components/Reports/DesignReports/DesignReports";
 import DesignerReports from "./components/Reports/DesignerReports/DesignerReports";
+import SentToCustomer from "./components/Albums/SendToCustomer/SentToCustomer";
 
 function App() {
   const router = createBrowserRouter([
@@ -52,6 +53,10 @@ function App() {
     {
       path: "/designerReports",
       element: <DesignerReports />
+    },
+    {
+      path: "/sentToCustomer",
+      element: <SentToCustomer />
     }
   ]);
   return <RouterProvider router={router} />;
