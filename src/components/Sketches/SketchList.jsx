@@ -168,7 +168,7 @@ const SketchList = () => {
                             <th>Sketcher</th>
                             <th>Status</th>
                             <th>Initiated</th>
-                            <th>Days_in_Sketched</th>
+                            <th>Days in Sketched</th>
                           </tr>
                         </thead>
                         <tbody>

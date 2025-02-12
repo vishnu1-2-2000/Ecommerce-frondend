@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 
 const SideBar = () => {
-
   const navigate = useNavigate();
   return (
     <div className="sidebar" data-background-color="dark">
@@ -33,7 +32,7 @@ const SideBar = () => {
       <div className="sidebar-wrapper scrollbar scrollbar-inner">
         <div className="sidebar-content">
           <ul className="nav nav-secondary">
-           <li className="nav-item active">
+            <li className="nav-item active">
               <a
                 data-bs-toggle="collapse"
                 // href="#dashboard"
@@ -41,7 +40,7 @@ const SideBar = () => {
                 // aria-expanded="false"
               >
                 <i className="fas fa-home" />
-                <p onClick={() => navigate('/')}>Dashboard</p>  
+                <p onClick={() => navigate("/")}>Dashboard</p>
                 {/* <span className="caret" />   */}
               </a>
               {/* <div className="collapse" id="dashboard">
@@ -145,17 +144,17 @@ const SideBar = () => {
               </a>
               <div className="collapse" id="forms">
                 <ul className="nav nav-collapse">
-                  <li onClick={() => navigate('/createOrder')}>
+                  <li onClick={() => navigate("/createOrder")}>
                     <a>
                       <span className="sub-item">PD/Concept</span>
                     </a>
                   </li>
-                  <li onClick={() => navigate('/pdLists')}>
+                  <li onClick={() => navigate("/pdLists")}>
                     <a>
                       <span className="sub-item">Lists</span>
                     </a>
                   </li>
-                  <li onClick={() => navigate('/approvalLists')}>
+                  <li onClick={() => navigate("/approvalLists")}>
                     <a>
                       <span className="sub-item">Approval Lists</span>
                     </a>
@@ -171,17 +170,17 @@ const SideBar = () => {
               </a>
               <div className="collapse" id="tables">
                 <ul className="nav nav-collapse"> */}
-                  {/* <li>
+            {/* <li>
                     <a href="tables/tables.html">
                       <span className="sub-item">Basic Table</span>
                     </a>
                   </li> */}
-                  {/* <li onClick={() => navigate('/dataTable')}>
+            {/* <li onClick={() => navigate('/dataTable')}>
                     <a>
                       <span className="sub-item">Datatables</span>
                     </a>
                   </li> */}
-                {/* </ul>
+            {/* </ul>
               </div>
             </li> */}
             <li className="nav-item">
@@ -192,7 +191,7 @@ const SideBar = () => {
               </a>
               <div className="collapse" id="maps">
                 <ul className="nav nav-collapse">
-                  <li onClick={() => navigate('/sketchList')}>
+                  <li onClick={() => navigate("/sketchList")}>
                     <a>
                       <span className="sub-item">Lists</span>
                     </a>
@@ -210,6 +209,29 @@ const SideBar = () => {
                 </ul>
               </div>
             </li>
+
+            <li className="nav-item">
+              <a data-bs-toggle="collapse" href="#design">
+                <i className="fas fa-user" />
+                <p>Design</p>
+                <span className="caret" />
+              </a>
+              <div className="collapse" id="design">
+                <ul className="nav nav-collapse">
+                  <li onClick={() => navigate("/designBank")}>
+                    <a>
+                      <span className="sub-item">Design Bank</span>
+                    </a>
+                  </li>
+                  <li onClick={() => navigate("/designMaster")}>
+                    <a>
+                      <span className="sub-item">Design Master</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
             <li className="nav-item">
               <a data-bs-toggle="collapse" href="#charts">
                 <i className="far fa-chart-bar" />

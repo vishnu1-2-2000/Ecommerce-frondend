@@ -15,6 +15,8 @@ import DewAlbums from "./components/Albums/DewAlbums/DewAlbums";
 import DewAlbumDetail from "./components/Albums/DewAlbums/DewAlbumDetail";
 import AddEmployee from "./components/Employees/AddEmployee";
 import EmployeeList from "./components/Employees/EmployeeList";
+import DesignBank from "./components/Design/DesignBank/DesignBank";
+import DesignMaster from "./components/Design/DesignMaster/DesignMaster";
 
 function App() {
   const router = createBrowserRouter([
@@ -77,6 +79,14 @@ function App() {
     {
       path: "/employeeLists",
       element: <EmployeeList />
+    },
+    {
+      path: "/designBank",
+      element: <DesignBank />
+    },
+    {
+      path: "/designMaster",
+      element: <DesignMaster />
     }
   ]);
   return <RouterProvider router={router} />;
