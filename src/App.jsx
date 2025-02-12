@@ -13,6 +13,8 @@ import DesignerReports from "./components/Reports/DesignerReports/DesignerReport
 import SentToCustomer from "./components/Albums/SendToCustomer/SentToCustomer";
 import DewAlbums from "./components/Albums/DewAlbums/DewAlbums";
 import DewAlbumDetail from "./components/Albums/DewAlbums/DewAlbumDetail";
+import AddEmployee from "./components/Employees/AddEmployee";
+import EmployeeList from "./components/Employees/EmployeeList";
 
 function App() {
   const router = createBrowserRouter([
@@ -67,6 +69,14 @@ function App() {
     {
       path: "dewAlbum/:id",
       element: <DewAlbumDetail />   
+    },
+    {
+      path: "/addEmployee",
+      element: <AddEmployee />
+    },
+    {
+      path: "/employeeLists",
+      element: <EmployeeList />
     }
   ]);
   return <RouterProvider router={router} />;

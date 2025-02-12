@@ -4,7 +4,7 @@ import { FaEllipsisV, FaEye } from "react-icons/fa";
 const PdTableData = () => {
   const [toggle, setToggle] = useState(false);
   return (
-    <>
+    <tr>
       <td>
         <FaEye className="text-primary" />
       </td>
@@ -36,7 +36,7 @@ const PdTableData = () => {
       )}
       </td>
       
-    </>
+    </tr>
   );
 };
 

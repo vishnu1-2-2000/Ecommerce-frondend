@@ -178,9 +178,7 @@ const PdLists = () => {
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
                               <PdTableData />
-                            </tr>
                           </tbody>
                         </table>
                       </div>

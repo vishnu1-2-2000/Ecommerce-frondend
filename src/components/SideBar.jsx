@@ -253,6 +253,28 @@ const SideBar = () => {
                 </ul>
               </div>
             </li>
+
+            <li className="nav-item">
+              <a data-bs-toggle="collapse" href="#employees">
+                <i className="fas fa-user" />
+                <p>Employees</p>
+                <span className="caret" />
+              </a>
+              <div className="collapse" id="employees">
+                <ul className="nav nav-collapse">
+                  <li onClick={() => navigate("/addEmployee")}>
+                    <a>
+                      <span className="sub-item">Add Employee</span>
+                    </a>
+                  </li>
+                  <li onClick={() => navigate("/employeeLists")}>
+                    <a>
+                      <span className="sub-item">Lists</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
             {/* <li className="nav-item">
               <a href="widgets.html">
                 <i className="fas fa-desktop" />

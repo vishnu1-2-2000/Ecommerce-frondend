@@ -1,357 +1,159 @@
+import React from "react";
+import { Form, Input, Select, DatePicker, Upload, Button, Row, Col } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
 import Footer from "../Footer";
 import Header from "../Header";
 import SideBar from "../SideBar";
 
+const { Option } = Select;
+
 const CreatePdOrder = () => {
+  const [form] = Form.useForm();
+
+  const onFinish = (values) => {
+    console.log("Form Values:", values);
+  };
+
   return (
     <div className="wrapper">
-      {/* Sidebar */}
       <SideBar />
-
-      {/* Main Panel */}
       <div className="main-panel">
         <Header />
         <div className="container">
           <div className="page-inner">
             <div className="page-header">
               <h3 className="fw-bold mb-3">PD/Concept</h3>
-              <ul className="breadcrumbs mb-3">
-                <li className="separator">
-                  <i className="icon-arrow-right"></i>
-                </li>
-                <li className="nav-item">
-                  <a>PD/Concept</a>
-                </li>
-                <li className="separator">
-                  <i className="icon-arrow-right"></i>
-                </li>
-                <li className="nav-item">
-                  <a href="#">Create Order</a>
-                </li>
-              </ul>
             </div>
 
-            {/* Order Form */}
-            <div className="row">
-              {/* Customer Selection */}
-              <div className="col-md-6">
-                <div className="form-group">
-                  <label htmlFor="customerSelect">Customer</label>
-                  <select className="form-select pd-select" id="customerSelect">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
+            <Form
+              form={form}
+              layout="vertical"
+              onFinish={onFinish}
+              requiredMark={false}
+            >
+              <Row gutter={16}>
+                <Col span={8}>
+                  <Form.Item label="Customer" name="customer"  rules={[{ required: true, message: "Please select customer" }]}>
+                    <Select placeholder="Select Customer">
+                      <Option value="1">Customer 1</Option>
+                      <Option value="2">Customer 2</Option>
+                    </Select>
+                  </Form.Item>
+                </Col>
+                <Col span={8}>
+                  <Form.Item label="Email" name="email">
+                    <Input disabled placeholder="Enter email" />
+                  </Form.Item>
+                </Col>
+                <Col span={8}>
+                  <Form.Item label="Mobile" name="mobile">
+                    <Input disabled placeholder="Enter mobile number" />
+                  </Form.Item>
+                </Col>
+              </Row>
 
-              {/* Email Input */}
-              <div className="col-md-6">
-                <div className="form-group">
-                  <label htmlFor="emailInput">Email</label>
-                  <input
-                    disabled
-                    type="text"
-                    className="form-control"
-                    id="emailInput"
-                    placeholder="Enter email"
-                  />
-                </div>
-              </div>
-            </div>
+              <Row gutter={16}>
+                <Col span={8}>
+                  <Form.Item label="Customer Code" name="customerCode">
+                    <Input disabled placeholder="Enter customer code" />
+                  </Form.Item>
+                </Col>
+                <Col span={8}>
+                  <Form.Item label="Date" name="date">
+                    <Input disabled placeholder="Enter date" />
+                  </Form.Item>
+                </Col>
+                <Col span={8}>
+                  <Form.Item label="Promised Date" name="promisedDate"  rules={[{ required: true, message: "Please select promised date" }]}>
+                    <DatePicker style={{ width: "100%" }} />
+                  </Form.Item>
+                </Col>
+              </Row>
 
-            <div className="row">
-              {/* Mobile Input */}
-              <div className="col-md-6">
-                <div className="form-group">
-                  <label htmlFor="mobileInput">Mobile</label>
-                  <input
-                    disabled
-                    type="text"
-                    className="form-control"
-                    id="mobileInput"
-                    placeholder="Enter mobile number"
-                  />
-                </div>
-              </div>
+              <Row gutter={16}>
+                <Col span={8}>
+                  <Form.Item label="Required Count" name="requiredCount"  rules={[{ required: true, message: "Please enter required count" }]}>
+                    <Input placeholder="Enter required count" />
+                  </Form.Item>
+                </Col>
+                <Col span={8}>
+                  <Form.Item label="Product Type" name="productType"  rules={[{ required: true, message: "Please select product type" }]}>
+                    <Select placeholder="Select product type">
+                      <Option value="1">Type 1</Option>
+                      <Option value="2">Type 2</Option>
+                    </Select>
+                  </Form.Item>
+                </Col>
+                <Col span={8}>
+                  <Form.Item label="Category Group" name="categoryGroup"  rules={[{ required: true, message: "Please select category group" }]}>
+                    <Select placeholder="Select category group">
+                      <Option value="1">Group 1</Option>
+                      <Option value="2">Group 2</Option>
+                    </Select>
+                  </Form.Item>
+                </Col>
+              </Row>
 
-              {/* Customer Code Input */}
-              <div className="col-md-6">
-                <div className="form-group">
-                  <label htmlFor="customerCodeInput">Customer Code</label>
-                  <input
-                    disabled
-                    type="text"
-                    className="form-control"
-                    id="customerCodeInput"
-                    placeholder="Enter customer code"
-                  />
-                </div>
-              </div>
-            </div>
+              <Row gutter={16}>
+                <Col span={8}>
+                  <Form.Item label="Gender" name="gender"  rules={[{ required: true, message: "Please select gender" }]}>
+                    <Select placeholder="Select gender">
+                      <Option value="male">Male</Option>
+                      <Option value="female">Female</Option>
+                    </Select>
+                  </Form.Item>
+                </Col>
+                <Col span={8}>
+                  <Form.Item label="Metal Type" name="metalType"  rules={[{ required: true, message: "Please select metal type" }]}>
+                    <Select placeholder="Select metal type">
+                      <Option value="gold">Gold</Option>
+                      <Option value="silver">Silver</Option>
+                    </Select>
+                  </Form.Item>
+                </Col>
+                <Col span={8}>
+                  <Form.Item label="Expected Gross Weight" name="grossWeight"  rules={[{ required: true, message: "Please enter gross weight" }]}>
+                    <Input placeholder="Enter gross weight" />
+                  </Form.Item>
+                </Col>
+              </Row>
 
-            <div className="row">
-              {/* Date Input */}
-              <div className="col-md-6">
-                <div className="form-group">
-                  <label htmlFor="dateInput">Date</label>
-                  <input
-                    disabled
-                    type="text"
-                    className="form-control"
-                    id="dateInput"
-                    placeholder="Enter date"
-                  />
-                </div>
-              </div>
+              <Row gutter={16}>
+                <Col span={8}>
+                  <Form.Item label="Diamond Range" name="diamondRange"  rules={[{ required: true, message: "Please select diamond range" }]}>
+                    <Select placeholder="Select diamond range">
+                      <Option value="low">Low</Option>
+                      <Option value="high">High</Option>
+                    </Select>
+                  </Form.Item>
+                </Col>
+                <Col span={8}>
+                  <Form.Item label="Expected Net Weight" name="netWeight"  rules={[{ required: true, message: "Please enter expected net.wt" }]}>
+                    <Input placeholder="Enter net weight" />
+                  </Form.Item>
+                </Col>
+                <Col span={8}>
+                  <Form.Item label="Choose Image File" name="image">
+                    <Upload beforeUpload={() => false}>
+                      <Button icon={<UploadOutlined />}>Upload File</Button>
+                    </Upload>
+                  </Form.Item>
+                </Col>
+              </Row>
 
-              {/* Promised Date Input */}
-              <div className="col-md-6">
-                <div className="form-group">
-                  <label htmlFor="promisedDateInput">Promised Date</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="promisedDateInput"
-                    placeholder="Enter promised date"
-                  />
-                </div>
-              </div>
-            </div>
+              <Form.Item label="Comment" name="comment">
+                <Input.TextArea rows={4} placeholder="Enter your comment" />
+              </Form.Item>
 
-            <div className="row">
-              {/* Date Input */}
-              <div className="col-md-6">
-                <div className="form-group">
-                  <label htmlFor="dateInput">Required Count</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="dateInput"
-                    placeholder="Enter date"
-                  />
-                </div>
-              </div>
-
-              {/* Promised Date Input */}
-              <div className="col-md-6">
-              <div className="form-group">
-                  <label htmlFor="customerSelect">Product Type</label>
-                  <select className="form-select pd-select" id="customerSelect">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div className="row">
-              {/* Date Input */}
-              <div className="col-md-6">
-              <div className="form-group">
-                  <label htmlFor="customerSelect">Category Group</label>
-                  <select className="form-select pd-select" id="customerSelect">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Promised Date Input */}
-              <div className="col-md-6">
-              <div className="form-group">
-                  <label htmlFor="customerSelect">Gender</label>
-                  <select className="form-select pd-select" id="customerSelect">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-
-            <div className="row">
-              {/* Date Input */}
-              <div className="col-md-6">
-              <div className="form-group">
-                  <label htmlFor="customerSelect">Category</label>
-                  <select className="form-select pd-select" id="customerSelect">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Promised Date Input */}
-              <div className="col-md-6">
-              <div className="form-group">
-                  <label htmlFor="customerSelect">Sub Category</label>
-                  <select className="form-select pd-select" id="customerSelect">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div className="row">
-              {/* Date Input */}
-              <div className="col-md-6">
-              <div className="form-group">
-                  <label htmlFor="customerSelect">Style</label>
-                  <select className="form-select pd-select" id="customerSelect">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Promised Date Input */}
-              <div className="col-md-6">
-              <div className="form-group">
-                  <label htmlFor="customerSelect">Brand</label>
-                  <select className="form-select pd-select" id="customerSelect">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div className="row">
-              {/* Date Input */}
-              <div className="col-md-6">
-              <div className="form-group">
-                  <label htmlFor="customerSelect">Metal Type</label>
-                  <select className="form-select pd-select" id="customerSelect">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Promised Date Input */}
-              <div className="col-md-6">
-              <div className="form-group">
-                  <label htmlFor="customerSelect">Occasion</label>
-                  <select className="form-select pd-select" id="customerSelect">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div className="row">
-              {/* Date Input */}
-              <div className="col-md-6">
-              <div className="form-group">
-                  <label htmlFor="customerSelect">Expected Gross Weight</label>
-                  <select className="form-select pd-select" id="customerSelect">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Promised Date Input */}
-              <div className="col-md-6">
-              <div className="form-group">
-                  <label htmlFor="customerSelect">Metal Color</label>
-                  <select className="form-select pd-select" id="customerSelect">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div className="row">
-              {/* Date Input */}
-              <div className="col-md-6">
-              <div className="form-group">
-                  <label htmlFor="customerSelect">Diamond Range</label>
-                  <select className="form-select pd-select" id="customerSelect">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Promised Date Input */}
-              <div className="col-md-6">
-              <div className="form-group">
-                  <label htmlFor="customerSelect">Expected Net Weight</label>
-                  <select className="form-select pd-select" id="customerSelect">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            {/* File Upload */}
-            <div className="form-group col-md-6">
-              <label htmlFor="imageUpload">Choose Image File</label>
-              <input
-                type="file"
-                className="form-control-file"
-                id="imageUpload"
-              />
-            </div>
-
-            {/* Comment Section */}
-            <div className="form-group">
-              <label htmlFor="comment">Comment</label>
-              <textarea className="form-control" id="comment" rows="5"></textarea>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="card-action">
-              <button className="btn btn-success">Submit</button>
-              <button className="btn btn-danger">Cancel</button>
-            </div>
+              <Form.Item>
+                <Button type="primary" htmlType="submit" style={{background: "#2a2f5b"}}>
+                  Submit
+                </Button>
+                <Button type="default" style={{ marginLeft: 8 }}>
+                  Cancel
+                </Button>
+              </Form.Item>
+            </Form>
           </div>
         </div>
 
