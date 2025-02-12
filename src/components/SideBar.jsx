@@ -245,7 +245,7 @@ const SideBar = () => {
                       <span className="sub-item">Send to Customer</span>
                     </a>
                   </li>
-                  <li onClick={() => navigate("/designerReports")}>
+                  <li onClick={() => navigate("/dewAlbum")}>
                     <a>
                       <span className="sub-item">Dew Albums</span>
                     </a>

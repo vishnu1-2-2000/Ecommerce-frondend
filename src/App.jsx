@@ -11,6 +11,8 @@ import SketchGridView from "./components/Sketches/SketchGridView";
 import DesignReports from "./components/Reports/DesignReports/DesignReports";
 import DesignerReports from "./components/Reports/DesignerReports/DesignerReports";
 import SentToCustomer from "./components/Albums/SendToCustomer/SentToCustomer";
+import DewAlbums from "./components/Albums/DewAlbums/DewAlbums";
+import DewAlbumDetail from "./components/Albums/DewAlbums/DewAlbumDetail";
 
 function App() {
   const router = createBrowserRouter([
@@ -57,6 +59,14 @@ function App() {
     {
       path: "/sentToCustomer",
       element: <SentToCustomer />
+    },
+    {
+      path: "/dewAlbum",
+      element: <DewAlbums />
+    }, 
+    {
+      path: "dewAlbum/:id",
+      element: <DewAlbumDetail />   
     }
   ]);
   return <RouterProvider router={router} />;
