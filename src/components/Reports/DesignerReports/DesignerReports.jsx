@@ -4,8 +4,10 @@ import Header from "../../Header";
 import SideBar from "../../SideBar";
 import DesignerReportTable from "./DesignerReportTable";
 import { Button } from "antd";
+import { useSelector } from "react-redux";
 
 const DesignerReports = () => {
+  const sideBarState = useSelector(state => state?.sidebar?.sideBar)
   const [filters, setFilters] = useState({
     startDate: "",
     endDate: "",
@@ -20,7 +22,7 @@ const DesignerReports = () => {
   };
   return (
     <>
-      <div className="wrapper">
+      <div className={`wrapper ${sideBarState ? "sidebar_minimize" : ""}`}>
         {/* Sidebar */}
         <SideBar />
         {/* End Sidebar */}

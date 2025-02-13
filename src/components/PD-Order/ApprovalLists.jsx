@@ -4,8 +4,10 @@ import Header from "../Header";
 import SideBar from "../SideBar";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useSelector } from "react-redux";
 
 const ApprovalLists = () => {
+  const sideBarState = useSelector(state => state?.sidebar?.sideBar)
   const [approvalStatus, setApprovalStatus] = useState("Approved");
   const [filters, setFilters] = useState({
     startDate: "",
@@ -22,7 +24,7 @@ const ApprovalLists = () => {
   };
   return (
     <>
-      <div className="wrapper">
+      <div className={`wrapper ${sideBarState ? "sidebar_minimize" : ""}`}>
         {/* Sidebar */}
         <SideBar />
         {/* End Sidebar */}

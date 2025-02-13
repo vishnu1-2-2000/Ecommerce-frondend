@@ -5,8 +5,11 @@ import SideBar from "../../SideBar";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import DesignReportTable from "./DesignReportTable";
+import { useSelector } from "react-redux";
 
 const DesignReports = () => {
+  const sideBarState = useSelector(state => state?.sidebar?.sideBar)
+
   const [filters, setFilters] = useState({
     startDate: "",
     endDate: "",
@@ -22,7 +25,7 @@ const DesignReports = () => {
   };
   return (
     <>
-      <div className="wrapper">
+      <div className={`wrapper ${sideBarState ? "sidebar_minimize" : ""}`}>
         {/* Sidebar */}
         <SideBar />
         {/* End Sidebar */}
@@ -99,9 +102,7 @@ const DesignReports = () => {
 
                         {/* Customer */}
                         <div className="col-lg-3 col-md-4 col-sm-6 d-flex flex-column">
-                          <label className="filter-labels">
-                            Search
-                          </label>
+                          <label className="filter-labels">Search</label>
                           <input
                             type="text"
                             className="form-control w-100"
@@ -139,7 +140,7 @@ const DesignReports = () => {
                             </tr>
                           </thead>
                           <tbody>
-                          <DesignReportTable />
+                            <DesignReportTable />
                           </tbody>
                         </table>
                       </div>

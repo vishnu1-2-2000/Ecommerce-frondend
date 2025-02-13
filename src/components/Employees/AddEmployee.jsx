@@ -3,10 +3,12 @@ import { Form, Input, Select, Button, Row, Col } from "antd";
 import Footer from "../Footer";
 import SideBar from "../SideBar";
 import Header from "../Header";
+import { useSelector } from "react-redux";
 
 const { Option } = Select;
 
 const AddEmployee = () => {
+  const sideBarState = useSelector(state => state?.sidebar?.sideBar)
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
@@ -14,7 +16,7 @@ const AddEmployee = () => {
   };
 
   return (
-    <div className="wrapper">
+    <div className={`wrapper ${sideBarState ? 'sidebar_minimize' : ""}`}>
       <SideBar />
       <div className="main-panel">
         <Header />

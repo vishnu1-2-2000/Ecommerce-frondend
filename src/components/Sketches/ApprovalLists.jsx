@@ -5,8 +5,11 @@ import Footer from "../Footer";
 import Header from "../Header";
 import SideBar from "../SideBar";
 import SketchesApprovalTable from "./SketchesApprovalTable";
+import { useSelector } from "react-redux";
 
 const ApprovalLists = () => {
+  const sideBarState = useSelector(state => state?.sidebar?.sideBar)
+
   const [filters, setFilters] = useState({
     startDate: "",
     endDate: "",
@@ -21,7 +24,7 @@ const ApprovalLists = () => {
   };
 
   return (
-    <div className="wrapper">
+    <div className={`wrapper ${sideBarState ? 'sidebar_minimize' : ""}`}>
       <SideBar />
       <div className="main-panel">
         <Header />

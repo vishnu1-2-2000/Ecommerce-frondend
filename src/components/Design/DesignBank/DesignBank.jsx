@@ -3,22 +3,29 @@ import SideBar from "../../SideBar";
 import Header from "../../Header";
 import Footer from "../../Footer";
 import DesignBankTable from "./DesignBankTable";
+import { Button } from "antd";
+import { useSelector } from "react-redux";
 
 const DesignBank = () => {
-    const [filters, setFilters] = useState({
-        startDate: "",
-        endDate: "",
-        status: "",
-        customer: "",
-        orderId: "",
-      });
-    
-      const handleFilterChange = (e) => {
-        const { name, value } = e.target;
-        setFilters((prev) => ({ ...prev, [name]: value }));
-      };
+  const sideBarState = useSelector(state => state?.sidebar?.sideBar)
+
+  const [filters, setFilters] = useState({
+    startDate: "",
+    endDate: "",
+    status: "",
+    customer: "",
+    orderId: "",
+  });
+
+  const [selectedCount, setSelectedCount] = useState(0)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters((prev) => ({ ...prev, [name]: value }));
+  };
   return (
-    <div className="wrapper">
+    <div className={`wrapper ${sideBarState ? 'sidebar_minimize' : ""}`}>
       {/* Sidebar */}
       <SideBar />
       {/* End Sidebar */}
@@ -50,26 +57,33 @@ const DesignBank = () => {
             </div>
 
             <div className="row">
-                <div className="col-md-12">
-                  <div className="card">
-                    <div className="card-body filter-section">
-                      <div className="row g-1 align-items-end">
-                        <div className="col-lg-3 col-md-4 col-sm-6 d-flex flex-column">
-                          <label className="filter-labels">Search</label>
-                          <input
-                            type="text"
-                            className="form-control w-100"
-                            name="customer"
-                            placeholder="Search"
-                            value={filters.customer}
-                            onChange={handleFilterChange}
-                          />
-                        </div>
+              <div className="col-md-12">
+                <div className="card">
+                  <div className="card-body filter-section">
+                    <div className="row g-1 align-items-end">
+                      <div className="col-lg-3 col-md-4 col-sm-6 d-flex flex-column">
+                        <label className="filter-labels">Search</label>
+                        <input
+                          type="text"
+                          className="form-control w-100"
+                          name="customer"
+                          placeholder="Search"
+                          value={filters.customer}
+                          onChange={handleFilterChange}
+                        />
                       </div>
+
+                     { selectedCount > 0 && <div className="col-lg-3 col-md-4 col-sm-6 d-flex flex-column">
+                        <label className="filter-labels"></label>
+                        <Button className="form-control w-100" onClick={() => setIsModalOpen(true)} style={{background: "#2a2f5b", color: "#fff"}}>
+                          Send {selectedCount} Items to Customer
+                        </Button>
+                      </div>}
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
             <div className="row">
               <div className="col-md-12">
@@ -93,9 +107,8 @@ const DesignBank = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          <DesignBankTable />
-                          <DesignBankTable />
-
+                          <DesignBankTable setSelectedCount={setSelectedCount} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
+                          <DesignBankTable setSelectedCount={setSelectedCount} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
                         </tbody>
                       </table>
                     </div>

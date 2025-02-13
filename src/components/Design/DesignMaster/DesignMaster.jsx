@@ -3,8 +3,11 @@ import SideBar from "../../SideBar";
 import Header from "../../Header";
 import Footer from "../../Footer";
 import DesignMasterTable from "./DesignMasterTable";
+import { useSelector } from "react-redux";
 
 const DesignMaster = () => {
+  const sideBarState = useSelector(state => state?.sidebar?.sideBar)
+
   const [filters, setFilters] = useState({
     startDate: "",
     endDate: "",
@@ -19,7 +22,7 @@ const DesignMaster = () => {
     setFilters((prev) => ({ ...prev, [name]: value }));
   };
   return (
-    <div className="wrapper">
+    <div className={`wrapper ${sideBarState ? "sidebar_minimize" : ""}`}>
       {/* Sidebar */}
       <SideBar />
       {/* End Sidebar */}
@@ -67,9 +70,7 @@ const DesignMaster = () => {
                         />
                       </div>
                       <div className="col-lg-3 col-md-4 col-sm-6 d-flex flex-column">
-                        <label className="filter-labels">
-                          Category Group
-                        </label>
+                        <label className="filter-labels">Category Group</label>
                         <select
                           className="form-control w-100"
                           name="status"
@@ -112,7 +113,7 @@ const DesignMaster = () => {
                           </tr>
                         </thead>
                         <tbody>
-                            <DesignMasterTable />
+                          <DesignMasterTable />
                         </tbody>
                       </table>
                     </div>

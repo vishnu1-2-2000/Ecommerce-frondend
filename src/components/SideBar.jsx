@@ -1,7 +1,16 @@
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  changeActiveLink,
+  changeSubMenu,
+  toggleSideBar,
+} from "../reducers/sideBarReducer";
 
 const SideBar = () => {
+  const activeLink = useSelector((state) => state?.sidebar?.activeLink);
+  const subMenu = useSelector((state) => state?.sidebar?.subMenu);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   return (
     <div className="sidebar" data-background-color="dark">
       <div className="sidebar-logo">
@@ -15,8 +24,8 @@ const SideBar = () => {
               height={20}
             />
           </a>
-          <div className="nav-toggle">
-            <button className="btn btn-toggle toggle-sidebar">
+          <div className="nav-toggle" onClick={() => dispatch(toggleSideBar())}>
+            <button className="btn-toggle">
               <i className="gg-menu-right" />
             </button>
             <button className="btn btn-toggle sidenav-toggler">
@@ -32,7 +41,12 @@ const SideBar = () => {
       <div className="sidebar-wrapper scrollbar scrollbar-inner">
         <div className="sidebar-content">
           <ul className="nav nav-secondary">
-            <li className="nav-item active">
+            <li
+              className={`nav-item ${
+                activeLink === "dashboard" ? "active" : ""
+              }`}
+              onClick={() => dispatch(changeActiveLink("dashboard"))}
+            >
               <a
                 data-bs-toggle="collapse"
                 // href="#dashboard"
@@ -136,25 +150,49 @@ const SideBar = () => {
                 </ul>
               </div>
             </li> */}
-            <li className="nav-item">
+            <li
+              className={`nav-item ${activeLink === "pd" ? "active" : ""}`}
+              onClick={() => dispatch(changeActiveLink("pd"))}
+            >
               <a data-bs-toggle="collapse" href="#forms">
                 <i className="fas fa-pen-square" />
                 <p>PD/Concept</p>
                 <span className="caret" />
               </a>
-              <div className="collapse" id="forms">
+              <div
+                className={`collapse ${activeLink === "pd" ? "show" : ""}`}
+                id="forms"
+              >
                 <ul className="nav nav-collapse">
-                  <li onClick={() => navigate("/createOrder")}>
+                  <li
+                    className={`${subMenu === "createPd" ? "active" : ""}`}
+                    onClick={() => {
+                      navigate("/createOrder");
+                      dispatch(changeSubMenu("createPd"));
+                    }}
+                  >
                     <a>
-                      <span className="sub-item">PD/Concept</span>
+                      <span className="sub-item">Create PD</span>
                     </a>
                   </li>
-                  <li onClick={() => navigate("/pdLists")}>
+                  <li
+                    className={`${subMenu === "pdList" ? "active" : ""}`}
+                    onClick={() => {
+                      navigate("/pdLists");
+                      dispatch(changeSubMenu("pdList"));
+                    }}
+                  >
                     <a>
                       <span className="sub-item">Lists</span>
                     </a>
                   </li>
-                  <li onClick={() => navigate("/approvalLists")}>
+                  <li
+                    className={`${subMenu === "pdApproval" ? "active" : ""}`}
+                    onClick={() => {
+                      navigate("/approvalLists");
+                      dispatch(changeSubMenu("pdApproval"));
+                    }}
+                  >
                     <a>
                       <span className="sub-item">Approval Lists</span>
                     </a>
@@ -183,25 +221,55 @@ const SideBar = () => {
             {/* </ul>
               </div>
             </li> */}
-            <li className="nav-item">
+            <li
+              className={`nav-item ${
+                activeLink === "sketches" ? "active" : ""
+              }`}
+              onClick={() => dispatch(changeActiveLink("sketches"))}
+            >
               <a data-bs-toggle="collapse" href="#maps">
                 <i className="fas fa-map-marker-alt" />
                 <p>Sketches</p>
                 <span className="caret" />
               </a>
-              <div className="collapse" id="maps">
+              <div
+                className={`collapse ${
+                  activeLink === "sketches" ? "show" : ""
+                }`}
+                id="maps"
+              >
                 <ul className="nav nav-collapse">
-                  <li onClick={() => navigate("/sketchList")}>
+                  <li
+                    className={`${subMenu === "sketchList" ? "active" : ""}`}
+                    onClick={() => {
+                      navigate("/sketchList");
+                      dispatch(changeSubMenu("sketchList"));
+                    }}
+                  >
                     <a>
                       <span className="sub-item">Lists</span>
                     </a>
                   </li>
-                  <li onClick={() => navigate("/sketchApproval")}>
+                  <li
+                    className={`${
+                      subMenu === "sketchApproval" ? "active" : ""
+                    }`}
+                    onClick={() => {
+                      navigate("/sketchApproval");
+                      dispatch(changeSubMenu("sketchApproval"));
+                    }}
+                  >
                     <a>
                       <span className="sub-item">Approval Lists</span>
                     </a>
                   </li>
-                  <li onClick={() => navigate("/sketchGridView")}>
+                  <li
+                    className={`${subMenu === "sketchGrid" ? "active" : ""}`}
+                    onClick={() => {
+                      navigate("/sketchGridView");
+                      dispatch(changeSubMenu("sketchGrid"));
+                    }}
+                  >
                     <a>
                       <span className="sub-item">Sketch Grid View</span>
                     </a>
@@ -210,20 +278,38 @@ const SideBar = () => {
               </div>
             </li>
 
-            <li className="nav-item">
+            <li
+              className={`nav-item ${activeLink === "design" ? "active" : ""}`}
+              onClick={() => dispatch(changeActiveLink("design"))}
+            >
               <a data-bs-toggle="collapse" href="#design">
                 <i className="fas fa-user" />
                 <p>Design</p>
                 <span className="caret" />
               </a>
-              <div className="collapse" id="design">
+              <div
+                className={`collapse ${activeLink === "design" ? "show" : ""}`}
+                id="design"
+              >
                 <ul className="nav nav-collapse">
-                  <li onClick={() => navigate("/designBank")}>
+                  <li
+                    className={`${subMenu === "designBank" ? "active" : ""}`}
+                    onClick={() => {
+                      navigate("/designBank");
+                      dispatch(changeSubMenu("designBank"));
+                    }}
+                  >
                     <a>
                       <span className="sub-item">Design Bank</span>
                     </a>
                   </li>
-                  <li onClick={() => navigate("/designMaster")}>
+                  <li
+                    className={`${subMenu === "designMaster" ? "active" : ""}`}
+                    onClick={() => {
+                      navigate("/designMaster");
+                      dispatch(changeSubMenu("designMaster"));
+                    }}
+                  >
                     <a>
                       <span className="sub-item">Design Master</span>
                     </a>
@@ -232,20 +318,40 @@ const SideBar = () => {
               </div>
             </li>
 
-            <li className="nav-item">
+            <li
+              className={`nav-item ${activeLink === "reports" ? "active" : ""}`}
+              onClick={() => dispatch(changeActiveLink("reports"))}
+            >
               <a data-bs-toggle="collapse" href="#charts">
                 <i className="far fa-chart-bar" />
                 <p>Reports</p>
                 <span className="caret" />
               </a>
-              <div className="collapse" id="charts">
+              <div
+                className={`collapse ${activeLink === "reports" ? "show" : ""}`}
+                id="charts"
+              >
                 <ul className="nav nav-collapse">
-                  <li onClick={() => navigate("/designReports")}>
+                  <li
+                    className={`${subMenu === "designReport" ? "active" : ""}`}
+                    onClick={() => {
+                      navigate("/designReports");
+                      dispatch(changeSubMenu("designReport"));
+                    }}
+                  >
                     <a>
                       <span className="sub-item">Design Reports</span>
                     </a>
                   </li>
-                  <li onClick={() => navigate("/designerReports")}>
+                  <li
+                    className={`${
+                      subMenu === "designerReport" ? "active" : ""
+                    }`}
+                    onClick={() => {
+                      navigate("/designerReports");
+                      dispatch(changeSubMenu("designerReport"));
+                    }}
+                  >
                     <a>
                       <span className="sub-item">Designer Reports</span>
                     </a>
@@ -254,20 +360,40 @@ const SideBar = () => {
               </div>
             </li>
 
-            <li className="nav-item">
+            <li
+              className={`nav-item ${activeLink === "albums" ? "active" : ""}`}
+              onClick={() => dispatch(changeActiveLink("albums"))}
+            >
               <a data-bs-toggle="collapse" href="#albums">
                 <i className="fas fa-file" />
                 <p>Albums</p>
                 <span className="caret" />
               </a>
-              <div className="collapse" id="albums">
+              <div
+                className={`collapse ${activeLink === "albums" ? "show" : ""}`}
+                id="albums"
+              >
                 <ul className="nav nav-collapse">
-                  <li onClick={() => navigate("/sentToCustomer")}>
+                  <li
+                    className={`${
+                      subMenu === "sentToCustomer" ? "active" : ""
+                    }`}
+                    onClick={() => {
+                      navigate("/sentToCustomer");
+                      dispatch(changeSubMenu("sentToCustomer"));
+                    }}
+                  >
                     <a>
                       <span className="sub-item">Send to Customer</span>
                     </a>
                   </li>
-                  <li onClick={() => navigate("/dewAlbum")}>
+                  <li
+                    className={`${subMenu === "dewAlbums" ? "active" : ""}`}
+                    onClick={() => {
+                      navigate("/dewAlbum");
+                      dispatch(changeSubMenu("dewAlbums"));
+                    }}
+                  >
                     <a>
                       <span className="sub-item">Dew Albums</span>
                     </a>
@@ -276,20 +402,42 @@ const SideBar = () => {
               </div>
             </li>
 
-            <li className="nav-item">
+            <li
+              className={`nav-item ${
+                activeLink === "employees" ? "active" : ""
+              }`}
+              onClick={() => dispatch(changeActiveLink("employees"))}
+            >
               <a data-bs-toggle="collapse" href="#employees">
                 <i className="fas fa-user" />
                 <p>Employees</p>
                 <span className="caret" />
               </a>
-              <div className="collapse" id="employees">
+              <div
+                className={`collapse ${
+                  activeLink === "employees" ? "show" : ""
+                }`}
+                id="employees"
+              >
                 <ul className="nav nav-collapse">
-                  <li onClick={() => navigate("/addEmployee")}>
+                  <li
+                    className={`${subMenu === "addEmployee" ? "active" : ""}`}
+                    onClick={() => {
+                      navigate("/addEmployee");
+                      dispatch(changeSubMenu("addEmployee"));
+                    }}
+                  >
                     <a>
                       <span className="sub-item">Add Employee</span>
                     </a>
                   </li>
-                  <li onClick={() => navigate("/employeeLists")}>
+                  <li
+                    className={`${subMenu === "empLists" ? "active" : ""}`}
+                    onClick={() => {
+                      navigate("/employeeLists");
+                      dispatch(changeSubMenu("empLists"));
+                    }}
+                  >
                     <a>
                       <span className="sub-item">Lists</span>
                     </a>

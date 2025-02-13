@@ -3,10 +3,13 @@ import AlbumCard from "./AlbumCard";
 import Footer from "../../Footer";
 import Header from "../../Header";
 import SideBar from "../../SideBar";
+import { useSelector } from "react-redux";
 
 const DewAlbums = () => {
+  const sideBarState = useSelector(state => state?.sidebar?.sideBar)
+
   return (
-    <div className="wrapper">
+    <div className={`wrapper ${sideBarState ? 'sidebar_minimize' : ""}`}>
       {/* Sidebar */}
       <SideBar />
       {/* End Sidebar */}

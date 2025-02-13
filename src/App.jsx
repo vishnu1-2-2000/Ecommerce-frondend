@@ -17,6 +17,8 @@ import AddEmployee from "./components/Employees/AddEmployee";
 import EmployeeList from "./components/Employees/EmployeeList";
 import DesignBank from "./components/Design/DesignBank/DesignBank";
 import DesignMaster from "./components/Design/DesignMaster/DesignMaster";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 function App() {
   const router = createBrowserRouter([
@@ -54,42 +56,46 @@ function App() {
     },
     {
       path: "/designReports",
-      element: <DesignReports />
+      element: <DesignReports />,
     },
     {
       path: "/designerReports",
-      element: <DesignerReports />
+      element: <DesignerReports />,
     },
     {
       path: "/sentToCustomer",
-      element: <SentToCustomer />
+      element: <SentToCustomer />,
     },
     {
       path: "/dewAlbum",
-      element: <DewAlbums />
-    }, 
+      element: <DewAlbums />,
+    },
     {
       path: "dewAlbum/:id",
-      element: <DewAlbumDetail />   
+      element: <DewAlbumDetail />,
     },
     {
       path: "/addEmployee",
-      element: <AddEmployee />
+      element: <AddEmployee />,
     },
     {
       path: "/employeeLists",
-      element: <EmployeeList />
+      element: <EmployeeList />,
     },
     {
       path: "/designBank",
-      element: <DesignBank />
+      element: <DesignBank />,
     },
     {
       path: "/designMaster",
-      element: <DesignMaster />
-    }
+      element: <DesignMaster />,
+    },
   ]);
-  return <RouterProvider router={router} />;
+  return (
+    <Provider store={store}>
+      <RouterProvider router={router} />;
+    </Provider>
+  );
 }
 
 export default App;

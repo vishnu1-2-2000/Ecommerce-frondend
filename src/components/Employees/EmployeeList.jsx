@@ -1,11 +1,13 @@
+import { useSelector } from "react-redux";
 import Footer from "../Footer";
 import Header from "../Header";
 import SideBar from "../SideBar";
 import EmployeeListTable from "./EmployeeListTable";
 
 const EmployeeList = () => {
+  const sideBarState = useSelector(state => state?.sidebar?.sideBar)
   return (
-    <div className="wrapper">
+    <div className={`wrapper ${sideBarState ? 'sidebar_minimize' : ""}`}>
       {/* Sidebar */}
       <SideBar />
       {/* End Sidebar */}

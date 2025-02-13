@@ -6,8 +6,10 @@ import { FaEye, FaEllipsisV } from "react-icons/fa";
 import SketchListTable from "./SketchListTable";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useSelector } from "react-redux";
 
 const SketchList = () => {
+ const sideBarState = useSelector(state => state?.sidebar?.sideBar)
   const [filters, setFilters] = useState({
     startDate: "",
     endDate: "",
@@ -22,7 +24,7 @@ const SketchList = () => {
     setFilters((prev) => ({ ...prev, [name]: value }));
   };
   return (
-    <div className="wrapper">
+    <div className={`wrapper ${sideBarState ? "sidebar_minimize" : ""}`}>
       <SideBar />
       <div className="main-panel">
         <Header />

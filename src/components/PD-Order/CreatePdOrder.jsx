@@ -4,10 +4,13 @@ import { UploadOutlined } from "@ant-design/icons";
 import Footer from "../Footer";
 import Header from "../Header";
 import SideBar from "../SideBar";
+import { useSelector } from "react-redux";
 
 const { Option } = Select;
 
 const CreatePdOrder = () => {
+ const sideBarState = useSelector(state => state?.sidebar?.sideBar)
+
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
@@ -15,7 +18,8 @@ const CreatePdOrder = () => {
   };
 
   return (
-    <div className="wrapper">
+    <div className={`wrapper ${sideBarState ? 'sidebar_minimize' : ""}`}>
+
       <SideBar />
       <div className="main-panel">
         <Header />
@@ -23,6 +27,25 @@ const CreatePdOrder = () => {
           <div className="page-inner">
             <div className="page-header">
               <h3 className="fw-bold mb-3">PD/Concept</h3>
+              <ul className="breadcrumbs mb-3">
+                  <li className="nav-home">
+                    <a href="#">
+                      <i className="icon-home"></i>
+                    </a>
+                  </li>
+                  <li className="separator">
+                    <i className="icon-arrow-right"></i>
+                  </li>
+                  <li className="nav-item">
+                    <a href="#">PD/Concept</a>
+                  </li>
+                  <li className="separator">
+                    <i className="icon-arrow-right"></i>
+                  </li>
+                  <li className="nav-item">
+                    <a href="#">Create PD</a>
+                  </li>
+                </ul>
             </div>
 
             <Form

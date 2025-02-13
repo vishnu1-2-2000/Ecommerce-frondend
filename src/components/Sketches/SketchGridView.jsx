@@ -6,8 +6,10 @@ import SketchCard from "./SketchCard";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const SketchGridView = () => {
+  const sideBarState = useSelector(state => state?.sidebar?.sideBar)
   const [filters, setFilters] = useState({
     startDate: "",
     endDate: "",
@@ -21,7 +23,7 @@ const SketchGridView = () => {
     setFilters((prev) => ({ ...prev, [name]: value }));
   };
   return (
-    <div className="wrapper">
+    <div className={`wrapper ${sideBarState ? "sidebar_minimize" : ""}`}>
       {/* Sidebar */}
       <SideBar />
 

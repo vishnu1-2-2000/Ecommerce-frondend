@@ -3,11 +3,14 @@ import Table from "./Table";
 import Header from "./Header";
 import SideBar from "./SideBar";
 import Footer from "./Footer";
+import { useSelector } from "react-redux";
 
 const DashBoard = () => {
+  const sideBarState = useSelector(state => state?.sidebar?.sideBar)
+  console.log("sidebar", sideBarState)
   return (
     <>
-      <div className="wrapper">
+      <div className={`wrapper ${sideBarState ? 'sidebar_minimize' : ""}`}>
         {/* Sidebar */}
         <SideBar />
         {/* End Sidebar */}

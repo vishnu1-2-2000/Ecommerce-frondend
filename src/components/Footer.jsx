@@ -6,34 +6,35 @@ const Footer = () => {
         <ul className="nav">
           <li className="nav-item">
             <a className="nav-link" href="http://www.themekita.com">
-              ThemeKita
+              {/* ThemeKita */}
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#">
               {" "}
-              Help{" "}
+              {/* Help{" "} */}
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#">
               {" "}
-              Licenses{" "}
+              {/* Licenses{" "} */}
             </a>
           </li>
         </ul>
       </nav>
       <div className="copyright">
-        2024, made with <i className="fa fa-heart heart text-danger" />{" "}
-        by
-        <a href="http://www.themekita.com">ThemeKita</a>
+        {/* 2024, made with  */}
+        {/* <i className="fa fa-heart heart text-danger" />{" "}   */}
+        {/* by */}
+        {/* <a href="http://www.themekita.com">ThemeKita</a> */}
       </div>
       <div>
-        Distributed by
+        {/* Distributed by */}
         <a target="_blank" href="https://themewagon.com/">
-          ThemeWagon
+          {/* ThemeWagon */}
         </a>
-        .
+        {/* . */}
       </div>
     </div>
   </footer>

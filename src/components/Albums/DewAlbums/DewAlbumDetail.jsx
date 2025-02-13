@@ -3,8 +3,11 @@ import { Carousel, Descriptions, Image } from "antd";
 import Footer from "../../Footer";
 import Header from "../../Header";
 import SideBar from "../../SideBar";
+import { useSelector } from "react-redux";
 
 const DewAlbumDetail = () => {
+  const sideBarState = useSelector(state => state?.sidebar?.sideBar)
+
   const images = [
     "https://i.pinimg.com/736x/fe/94/ba/fe94babd8483716a84e2ead8f0e4e1f1.jpg",
     "https://i.pinimg.com/736x/13/9e/e9/139ee974066402dfc74b7944a970ea60.jpg",
@@ -14,7 +17,7 @@ const DewAlbumDetail = () => {
   const [selectedImage, setSelectedImage] = useState(images[0]);
 
   return (
-    <div className="wrapper">
+    <div className={`wrapper ${sideBarState ? "sidebar_minimize" : ""}`}>
       <SideBar />
       <div className="main-panel">
         <Header />
@@ -53,9 +56,9 @@ const DewAlbumDetail = () => {
                   slidesToShow={3}
                   className="mt-4"
                   arrows
-                 style={{
-                    width: "27%"
-                 }}
+                  style={{
+                    width: "27%",
+                  }}
                 >
                   {images.map((img, index) => (
                     <div key={index} onClick={() => setSelectedImage(img)}>
@@ -67,12 +70,27 @@ const DewAlbumDetail = () => {
 
               {/* Right: Details */}
               <div className="w-1/2 album-de-right-section">
-                <Descriptions className="fw-bold" title="Specifications" bordered column={1}>
-                  <Descriptions.Item label="Name">Dew Collection</Descriptions.Item>
-                  <Descriptions.Item label="Metal Color">Gold</Descriptions.Item>
-                  <Descriptions.Item label="Metal Type">18K Gold</Descriptions.Item>
-                  <Descriptions.Item label="Net Weight">12.5g</Descriptions.Item>
-                  <Descriptions.Item label="Gross Weight">13.2g</Descriptions.Item>
+                <Descriptions
+                  className="fw-bold"
+                  title="Specifications"
+                  bordered
+                  column={1}
+                >
+                  <Descriptions.Item label="Name">
+                    Dew Collection
+                  </Descriptions.Item>
+                  <Descriptions.Item label="Metal Color">
+                    Gold
+                  </Descriptions.Item>
+                  <Descriptions.Item label="Metal Type">
+                    18K Gold
+                  </Descriptions.Item>
+                  <Descriptions.Item label="Net Weight">
+                    12.5g
+                  </Descriptions.Item>
+                  <Descriptions.Item label="Gross Weight">
+                    13.2g
+                  </Descriptions.Item>
                 </Descriptions>
               </div>
             </div>

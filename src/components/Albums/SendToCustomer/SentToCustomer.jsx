@@ -3,8 +3,11 @@ import Footer from "../../Footer";
 import SideBar from "../../SideBar";
 import Header from "../../Header";
 import SentCustomerTable from "./SentCustomerTable";
+import { useSelector } from "react-redux";
 
 const SentToCustomer = () => {
+ const sideBarState = useSelector(state => state?.sidebar?.sideBar)
+
   const [filters, setFilters] = useState({
     startDate: "",
     endDate: "",
@@ -19,7 +22,7 @@ const SentToCustomer = () => {
     setFilters((prev) => ({ ...prev, [name]: value }));
   };
   return (
-    <div className="wrapper">
+    <div className={`wrapper ${sideBarState ? 'sidebar_minimize' : ""}`}>
       <SideBar />
       <div className="main-panel">
         <Header />
