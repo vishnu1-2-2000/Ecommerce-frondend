@@ -1,4 +1,10 @@
 const Header = () => {
+  function logOutFunction() {
+    // Remove the cookie by setting its expiry date to a past date
+    document.cookie = "access=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    // Cookies.remove("access"); // Replace "token" with your cookie name
+    navigate("/"); // Navigate to the homepage or other location
+}
   return (
     <>
       <div className="main-header">
@@ -133,16 +139,7 @@ const Header = () => {
                             <span className="time">12 minutes ago</span>
                           </div>
                         </a>
-                        <a href="#">
-                          <div className="notif-img">
-                            <img src="assets/img/talha.jpg" alt="Img Profile" />
-                          </div>
-                          <div className="notif-content">
-                            <span className="subject">Talha</span>
-                            <span className="block"> Hi, Apa Kabar ? </span>
-                            <span className="time">17 minutes ago</span>
-                          </div>
-                        </a>
+                       
                       </div>
                     </div>
                   </li>
@@ -333,35 +330,17 @@ const Header = () => {
                             className="avatar-img rounded"
                           />
                         </div>
-                        <div className="u-text">
-                          <h4>Hizrian</h4>
-                          <p className="text-muted">hello@example.com</p>
-                          <a
-                            href="profile.html"
-                            className="btn btn-xs btn-secondary btn-sm"
-                          >
-                            View Profile
-                          </a>
-                        </div>
+                       
                       </div>
                     </li>
                     <li>
                       <div className="dropdown-divider" />
-                      <a className="dropdown-item" href="#">
-                        My Profile
-                      </a>
-                      <a className="dropdown-item" href="#">
-                        My Balance
-                      </a>
-                      <a className="dropdown-item" href="#">
-                        Inbox
-                      </a>
+                     
+                      
                       <div className="dropdown-divider" />
-                      <a className="dropdown-item" href="#">
-                        Account Setting
-                      </a>
+                      
                       <div className="dropdown-divider" />
-                      <a className="dropdown-item" href="#">
+                      <a class="dropdown-item" href="/" onClick={logOutFunction}>
                         Logout
                       </a>
                     </li>

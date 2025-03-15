@@ -1,95 +1,49 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import DashBoard from "./components/DashBoard";
-import DataTable from "./components/DataTable";
-import CreatePdOrder from "./components/PD-Order/CreatePdOrder";
-import ApprovalLists from "./components/PD-Order/ApprovalLists";
-import SketchApproval from "./components/Sketches/ApprovalLists";
-import PdLists from "./components/PD-Order/PdLists";
-import SketchList from "./components/Sketches/SketchList";
-import SketchGridView from "./components/Sketches/SketchGridView";
-import DesignReports from "./components/Reports/DesignReports/DesignReports";
-import DesignerReports from "./components/Reports/DesignerReports/DesignerReports";
-import SentToCustomer from "./components/Albums/SendToCustomer/SentToCustomer";
-import DewAlbums from "./components/Albums/DewAlbums/DewAlbums";
-import DewAlbumDetail from "./components/Albums/DewAlbums/DewAlbumDetail";
-import AddEmployee from "./components/Employees/AddEmployee";
-import EmployeeList from "./components/Employees/EmployeeList";
-import DesignBank from "./components/Design/DesignBank/DesignBank";
-import DesignMaster from "./components/Design/DesignMaster/DesignMaster";
+
 import { Provider } from "react-redux";
 import store from "./store/store";
-
+import Login from "./components/Accounts/Login";
+import Signup from "./components/Accounts/Signup";
+import List from "./components/Product/List";
+import Add from "./components/Product/Add";
+import Edit from "./components/Product/Edit";
+import View from "./components/Product/View";
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
+      element: <Login />,
+    },
+    {
+      path: "/signup",
+      element: <Signup />,
+    },
+    {
+      path: "/dashboard",
       element: <DashBoard />,
     },
-    {
-      path: "/dataTable",
-      element: <DataTable />,
-    },
+   
     {
       path: "/createOrder",
-      element: <CreatePdOrder />,
+      element: <Add />,
+    },
+    
+    {
+      path: "/Lists",
+      element: <List />,
+    },
+
+    {
+      path: "/product_edit/:id",
+      element:  <Edit /> ,
     },
     {
-      path: "/approvalLists",
-      element: <ApprovalLists />,
+      path: "/product_view/:id",
+      element:  <View /> ,
     },
-    {
-      path: "/pdLists",
-      element: <PdLists />,
-    },
-    {
-      path: "/sketchList",
-      element: <SketchList />,
-    },
-    {
-      path: "/sketchApproval",
-      element: <SketchApproval />,
-    },
-    {
-      path: "/sketchGridView",
-      element: <SketchGridView />,
-    },
-    {
-      path: "/designReports",
-      element: <DesignReports />,
-    },
-    {
-      path: "/designerReports",
-      element: <DesignerReports />,
-    },
-    {
-      path: "/sentToCustomer",
-      element: <SentToCustomer />,
-    },
-    {
-      path: "/dewAlbum",
-      element: <DewAlbums />,
-    },
-    {
-      path: "dewAlbum/:id",
-      element: <DewAlbumDetail />,
-    },
-    {
-      path: "/addEmployee",
-      element: <AddEmployee />,
-    },
-    {
-      path: "/employeeLists",
-      element: <EmployeeList />,
-    },
-    {
-      path: "/designBank",
-      element: <DesignBank />,
-    },
-    {
-      path: "/designMaster",
-      element: <DesignMaster />,
-    },
+    
   ]);
   return (
     <Provider store={store}>

@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import Table from "./Table";
 import Header from "./Header";
 import SideBar from "./SideBar";
 import Footer from "./Footer";
 import { useSelector } from "react-redux";
-
+import Cookies from "js-cookie";
 const DashBoard = () => {
   const sideBarState = useSelector(state => state?.sidebar?.sideBar)
   console.log("sidebar", sideBarState)
+   const navigate = useNavigate();
+   useEffect(() => {
+      const token = Cookies.get("access");
+      // alert(token)
+      if (!token) {
+        navigate("/"); // Redirect if no auth token
+        return;
+      }
+    }, [navigate]);
   return (
     <>
       <div className={`wrapper ${sideBarState ? 'sidebar_minimize' : ""}`}>
